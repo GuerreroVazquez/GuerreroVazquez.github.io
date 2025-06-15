@@ -428,3 +428,173 @@ footer {
         left: -1.5rem;
     }
 }
+
+/* ================== NEW PROJECT SECTION STYLES ================== */
+#projects h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: none;
+}
+
+.project-item {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.project-content {
+    grid-column: 7 / -1; /* Start at column 7, end at the last one */
+    position: relative;
+    grid-row: 1 / 2;
+    text-align: right;
+    z-index: 2; /* Ensure content is above the image */
+}
+
+/* Style for alternating projects (image on the right) */
+.project-item:nth-of-type(even) .project-content {
+    grid-column: 1 / 7; /* Start at column 1, end at column 7 */
+    text-align: left;
+}
+
+.project-overline {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.project-title {
+    color: var(--secondary-color);
+    font-size: 1.75rem;
+    margin: 0.5rem 0 1.5rem;
+}
+
+.project-description {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.project-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end; /* Align to the right by default */
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 1rem;
+    gap: 1rem;
+}
+
+/* Adjust tech list for left-aligned content */
+.project-item:nth-of-type(even) .project-tech-list {
+    justify-content: flex-start;
+}
+
+.project-tech-list li {
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace; /* A classic "techy" font */
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.project-links {
+    display: flex;
+    justify-content: flex-end; /* Align to the right by default */
+    gap: 1rem;
+}
+
+/* Adjust links for left-aligned content */
+.project-item:nth-of-type(even) .project-links {
+    justify-content: flex-start;
+}
+
+.project-links a {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+    color: var(--accent-color);
+}
+
+.project-image {
+    grid-column: 1 / 8; /* Start at column 1, end at column 8 */
+    grid-row: 1 / 2;
+    position: relative;
+    z-index: 1;
+}
+
+/* Style for alternating projects (image on the right) */
+.project-item:nth-of-type(even) .project-image {
+    grid-column: 6 / -1; /* Start at column 6, end at the last one */
+}
+
+.project-image a {
+    display: block;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    position: relative;
+}
+
+/* Image overlay effect */
+.project-image a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    mix-blend-mode: screen; /* This creates a cool color blend effect */
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.project-image a:hover::before {
+    opacity: 0;
+}
+
+.project-image img {
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    mix-blend-mode: multiply; /* Helps image blend with accent color bg */
+    filter: grayscale(100%) contrast(1) brightness(90%);
+    transition: filter 0.3s ease;
+}
+
+.project-image a:hover img {
+    filter: none;
+}
+
+/* ================== RESPONSIVENESS FOR NEW PROJECT SECTION ================== */
+@media (max-width: 768px) {
+    .project-item,
+    .project-item:nth-of-type(even) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project-image,
+    .project-item:nth-of-type(even) .project-image {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .project-content,
+    .project-item:nth-of-type(even) .project-content {
+        width: 100%;
+        text-align: left; /* Always align left on mobile */
+    }
+    
+    .project-tech-list,
+    .project-item:nth-of-type(even) .project-tech-list,
+    .project-links,
+    .project-item:nth-of-type(even) .project-links {
+        justify-content: flex-start; /* Always align left on mobile */
+    }
+}
