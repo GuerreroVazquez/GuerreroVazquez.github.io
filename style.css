@@ -598,3 +598,40 @@ footer {
         justify-content: flex-start; /* Always align left on mobile */
     }
 }
+
+/* ================== COMMUNITY & INTERESTS STYLES ================== */
+#other-activities h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: none;
+}
+
+.other-activities-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns on desktop */
+    gap: 1.5rem;
+}
+
+.activity-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+}
+
+.activity-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+/* ================== RESPONSIVENESS FOR COMMUNITY & INTERESTS ================== */
+@media (max-width: 768px) {
+    .other-activities-container {
+        grid-template-columns: 1fr; /* Stack into a single column on mobile */
+    }
+}
+
