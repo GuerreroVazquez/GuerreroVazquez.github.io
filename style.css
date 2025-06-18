@@ -535,7 +535,7 @@ footer {
 
 .project-image a {
     display: block;
-    background-color: var(--accent-color);
+    background-color: transparent;
     border-radius: 5px;
     position: relative;
 }
